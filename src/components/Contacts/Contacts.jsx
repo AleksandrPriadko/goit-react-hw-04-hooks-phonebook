@@ -1,29 +1,26 @@
-import { Component } from "react";
-import styles from "./Style.module.scss";
+import PropTypes from "prop-types";
+import FindContacts from "./FindContacts";
+import ContactsList from "./ContactsList";
 
-export class ContactsList extends Component {
-  render() {
-    const { contacts, deleteContact } = this.props;
+export default function Contacts({
+  contacts,
+  filter,
+  onChange,
+  deleteContact,
+}) {
+  return (
+    <div>
+      <h2>Contacts</h2>
+      <FindContacts filter={filter} handleFilter={onChange} />
 
-    return (
-      <ul className={styles.contacts}>
-        {contacts.map(({ id, name, number }) => {
-          return (
-            <li key={id} className={styles.contact}>
-              <span>{name}</span>
-              <span>{number}</span>
-              <button
-                className={styles.button}
-                onClick={() => deleteContact(id)}
-              >
-                X
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
+      <ContactsList contacts={contacts} deleteContact={deleteContact} />
+    </div>
+  );
 }
 
-export default ContactsList;
+Contacts.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

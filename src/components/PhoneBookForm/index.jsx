@@ -1,40 +1,42 @@
-import { Component } from "react";
-import Form from "./PhoneBook";
+export { default } from "./PhoneBook";
 
-const INITIAL_STATE = {
-  name: "",
-  number: "",
-};
+// import { Component } from "react";
+// import PhoneBooksForm from "./PhoneBooksForm";
 
-export default class Phonebook extends Component {
-  state = {
-    ...INITIAL_STATE,
-  };
+// const INITIAL_STATE = {
+//   name: "",
+//   number: "",
+// };
 
-  handleChange = ({ target }) => {
-    const { name, value } = target;
+// export default class Phonebook extends Component {
+//   state = {
+//     ...INITIAL_STATE,
+//   };
 
-    this.setState({ [name]: value });
-  };
+//   handleChange = ({ target }) => {
+//     const { name, value } = target;
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+//     this.setState({ [name]: value });
+//   };
 
-    this.props.onSubmit({ ...this.state });
-    this.reset();
-  };
+//   handleSubmit = (event) => {
+//     event.preventDefault();
 
-  reset = () => {
-    this.setState({ ...INITIAL_STATE });
-  };
+//     this.props.onSubmit({ ...this.state });
+//     this.reset();
+//   };
 
-  render() {
-    return (
-      <Form
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        state={this.state}
-      />
-    );
-  }
-}
+//   reset = () => {
+//     this.setState({ ...INITIAL_STATE });
+//   };
+
+//   render() {
+//     return (
+//       <PhoneBooksForm
+//         handleChange={this.handleChange}
+//         handleSubmit={this.handleSubmit}
+//         state={this.state}
+//       />
+//     );
+//   }
+// }
