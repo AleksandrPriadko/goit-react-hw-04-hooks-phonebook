@@ -19,6 +19,6 @@ export default function FindContacts({ filter, handleFilter }) {
 }
 
 FindContacts.propTypes = {
-  filter: PropTypes.string.isRequired,
+  filter: PropTypes.string,
   handleFilter: PropTypes.func.isRequired,
 };

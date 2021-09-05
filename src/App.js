@@ -6,7 +6,7 @@ import Contacts from "./components/Contacts";
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState("");
-
+  console.log(typeof filter);
   useEffect(() => {
     const contact = localStorage.getItem("contact");
     const contactsParsed = JSON.parse(contact);
@@ -41,10 +41,10 @@ export default function App() {
   };
 
   const changeFilter = ({ target }) => {
-    console.log(target);
     const { value } = target;
-
+    //console.log(setFilter((prev) => [...prev, value]));
     setFilter(value);
+    // setFilter(value);
   };
 
   const deleteContact = (contactId) => {
@@ -53,12 +53,15 @@ export default function App() {
     );
   };
 
-  const visebleContacts = contacts.filter(
-    ({ name, number }) =>
+  const visebleContacts = contacts.filter(({ name, number }) => {
+    console.log(typeof number);
+    return (
       name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
       number.includes(filter)
-  );
+    );
+  });
 
+  console.log(visebleContacts);
   return (
     <>
       <h1>Phonebook</h1>

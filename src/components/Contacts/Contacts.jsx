@@ -19,7 +19,7 @@ export default function Contacts({
 }
 
 Contacts.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.array,
   deleteContact: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
