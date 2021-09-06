@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
 import PhoneBooksForm from "./PhoneBooksForm";
 import { useState } from "react";
 
@@ -37,3 +38,7 @@ export default function PhoneBook({ onSubmit }) {
     />
   );
 }
+
+PhoneBook.propTypes = {
+  onSubmit: PropTypes.func,
+};

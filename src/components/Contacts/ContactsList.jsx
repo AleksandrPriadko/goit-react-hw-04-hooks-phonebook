@@ -2,7 +2,6 @@ import styles from "./Style.module.scss";
 import PropTypes from "prop-types";
 
 export default function ContactsList({ contacts, deleteContact }) {
-  console.log(contacts);
   return (
     <ul className={styles.contacts}>
       {contacts.map(({ id, name, number }) => {
